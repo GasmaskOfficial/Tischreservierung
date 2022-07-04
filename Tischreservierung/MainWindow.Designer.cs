@@ -39,6 +39,8 @@
             this.comboBoxTable = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.buttonShowReservation = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -46,13 +48,19 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBoxNumberOfPersons = new System.Windows.Forms.TextBox();
             this.buttonReserveTable = new System.Windows.Forms.Button();
-            this.buttonShowReservation = new System.Windows.Forms.Button();
+            this.ColumnFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSecondName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumberOfPersons = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -161,6 +169,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Controls.Add(this.buttonShowReservation);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
@@ -170,6 +179,34 @@
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "Reservierung anzeigen";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnFirstName,
+            this.ColumnSecondName,
+            this.ColumnDate,
+            this.ColumnTable,
+            this.ColumnNumberOfPersons,
+            this.ColumnPhoneNumber});
+            this.dataGridView1.Location = new System.Drawing.Point(25, 31);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(644, 265);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // buttonShowReservation
+            // 
+            this.buttonShowReservation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonShowReservation.Location = new System.Drawing.Point(557, 302);
+            this.buttonShowReservation.Name = "buttonShowReservation";
+            this.buttonShowReservation.Size = new System.Drawing.Size(131, 57);
+            this.buttonShowReservation.TabIndex = 6;
+            this.buttonShowReservation.Text = "Reservierungen anzeigen";
+            this.buttonShowReservation.UseVisualStyleBackColor = true;
+            this.buttonShowReservation.Click += new System.EventHandler(this.ShowReservation_Click);
             // 
             // label2
             // 
@@ -244,16 +281,35 @@
             this.buttonReserveTable.UseVisualStyleBackColor = true;
             this.buttonReserveTable.Click += new System.EventHandler(this.ReserveTable_Click);
             // 
-            // buttonShowReservation
+            // ColumnFirstName
             // 
-            this.buttonShowReservation.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonShowReservation.Location = new System.Drawing.Point(557, 302);
-            this.buttonShowReservation.Name = "buttonShowReservation";
-            this.buttonShowReservation.Size = new System.Drawing.Size(131, 57);
-            this.buttonShowReservation.TabIndex = 6;
-            this.buttonShowReservation.Text = "Reservierungen anzeigen";
-            this.buttonShowReservation.UseVisualStyleBackColor = true;
-            this.buttonShowReservation.Click += new System.EventHandler(this.ShowReservation_Click);
+            this.ColumnFirstName.HeaderText = "Vorname";
+            this.ColumnFirstName.Name = "ColumnFirstName";
+            // 
+            // ColumnSecondName
+            // 
+            this.ColumnSecondName.HeaderText = "Nachname";
+            this.ColumnSecondName.Name = "ColumnSecondName";
+            // 
+            // ColumnDate
+            // 
+            this.ColumnDate.HeaderText = "Datum";
+            this.ColumnDate.Name = "ColumnDate";
+            // 
+            // ColumnTable
+            // 
+            this.ColumnTable.HeaderText = "Tisch";
+            this.ColumnTable.Name = "ColumnTable";
+            // 
+            // ColumnNumberOfPersons
+            // 
+            this.ColumnNumberOfPersons.HeaderText = "Anzahl Personen";
+            this.ColumnNumberOfPersons.Name = "ColumnNumberOfPersons";
+            // 
+            // ColumnPhoneNumber
+            // 
+            this.ColumnPhoneNumber.HeaderText = "Telefonnummer";
+            this.ColumnPhoneNumber.Name = "ColumnPhoneNumber";
             // 
             // Tischreservierung
             // 
@@ -272,6 +328,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -303,5 +360,12 @@
         private GroupBox groupBox6;
         private TextBox textBoxPhoneNumber;
         private Button buttonShowReservation;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ColumnFirstName;
+        private DataGridViewTextBoxColumn ColumnSecondName;
+        private DataGridViewTextBoxColumn ColumnDate;
+        private DataGridViewTextBoxColumn ColumnTable;
+        private DataGridViewTextBoxColumn ColumnNumberOfPersons;
+        private DataGridViewTextBoxColumn ColumnPhoneNumber;
     }
 }
